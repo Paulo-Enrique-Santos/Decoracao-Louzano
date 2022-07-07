@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Gulzar&display=swap');
 :root{
-    --main-color: ;
+    --main-color: #293235;
     --bg-color: #f4e3b2;
-    --text-color: ;
+    --text-color: #243b3b;
+    --medium-font: 1.3rem;
 }
 
 *{
@@ -11,8 +12,30 @@
     padding: 0;
     text-decoration: none;
     list-style: none;
+    color: unset;
 }
 
 body{
     background: var(--bg-color);
+}
+
+header{
+    display: flex;
+    padding: 0px 150px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--main-color);
+}
+
+.logo{
+    color: var(--main-color);
+}
+
+.nav{
+    display: flex;
+    gap: 3rem;
+}
+
+.nav{
+    font-size: var(--medium-font);
 }
