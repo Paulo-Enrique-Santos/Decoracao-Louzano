@@ -1,27 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Gulzar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 :root{
     --main-color: #293235;
-    --bg-color: #f4e3b2;
-    --text-color: #243b3b;
+    --bg-color: #ffffff;
+    --card-color: #f5f5f5;
+    --card2-color: #dcdcdc;
+    --big-font: 2rem;
     --medium-font: 1.3rem;
 }
 
 *{
-    font-family: 'Gulzar', serif;
+    font-family: 'PT Sans', sans-serif;
     margin: 0;
     padding: 0;
     text-decoration: none;
     list-style: none;
     color: unset;
+    box-sizing: border-box;
 }
 
 body{
     background: var(--bg-color);
+    max-width: 100%;
 }
 
 header{
     display: flex;
-    padding: 0px 150px;
+    padding: 15px 150px;
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid var(--main-color);
@@ -33,9 +37,66 @@ header{
 
 .nav{
     display: flex;
-    gap: 3rem;
+    gap: 4rem;
 }
 
 .nav{
     font-size: var(--medium-font);
+}
+
+.home{
+    display: flex;
+    height: 90vh;
+    overflow: hidden;
+}
+
+.home .img{
+    display: flex;
+    width: 40%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url("../assets/pictures/bg.jpg");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    gap: 6rem;
+}
+
+.home .img > div{
+    background-color: var(--bg-color);
+    width: 25%;
+    height: 100%;
+    transform: skew(-12deg);
+    margin-left: -13%;
+}
+
+.home .img > .border{
+    background-color: var(--bg-color);
+    width: 2%;
+    height: 100%;
+    transform: skew(-12deg);
+}
+
+.home .text{
+    padding: 20px 120px;
+    width: 60%;
+    height: 100%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.home .text h1{
+    font-size: var(--big-font);
+}
+
+.home .text a{
+    font-size: var(--medium-font);
+    background-color: var(--main-color);
+    padding: 10px 40px;
+    border-radius: 20px;
+    font-weight: 1000;
 }
