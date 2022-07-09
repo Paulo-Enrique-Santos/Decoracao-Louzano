@@ -16,6 +16,7 @@
     list-style: none;
     color: unset;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 .difer{
@@ -50,6 +51,9 @@ header{
     align-items: center;
     font-size: var(--small-font);
     background-color: var(--main-color);
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 .logo{
@@ -66,11 +70,53 @@ header{
     color: var(--bg-color);
 }
 
+.menu{
+    display: none;
+}
+
+.menu span{
+    display: block;
+    width: 28px;
+    height: 2px;
+    border-radius: 9999px;
+    background-color: var(--bg-color);
+    transition: all ease-in-out .2s;
+}
+
+.menu span:not(:last-child){
+    margin-bottom: 7px;
+}
+
+.menu.active{
+    transition-delay: .4s;
+    transform: rotate(45deg);
+}
+
+.menu.active > span:nth-child(2){
+    width: 0;
+}
+
+.menu.active > span:nth-child(1),
+.menu.active > span:nth-child(3){
+    transition-delay: .4s;
+}
+
+.menu.active > span:nth-child(1){
+    transform: translateY(9px);
+}
+
+.menu.active > span:nth-child(3){
+    transform: translateY(-9px) rotate(90deg);
+}
+
+section{
+    padding: 100px 20px 50px;
+}
+
 .home{
     display: flex;
-    height: 90vh;
+    min-height: 93vh;
     background-image: linear-gradient(190deg, var(--main-color) 70%, var(--bg-color) 70.5%);
-    padding: 50px 20px 10px;
 }
 
 .home .text{
@@ -78,7 +124,6 @@ header{
     flex-direction: column;
     padding: 80px 0px 30px 30px;
     color: var(--bg-color);
-    background-color: blue;
 }
 
 .home .text h1{
@@ -91,32 +136,168 @@ header{
 }
 
 .home .img{
-    display: grid;
+    display: flex;
     width: 70%;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 2fr 1fr;
-    gap: 1rem;
-    padding: 1rem;
+    padding: 15px;
     background-color: var(--card-color);
+    border-radius: 1rem;
+    box-shadow: 0px 0px 23px -2px rgba(0,0,0,0.96);
+    overflow-x: hidden;
+    gap: 10%;
+}
+
+.home .img img{
+    width: 100%;
+    border-radius: 0.5rem;
+    transition: all .5s;
+    height: 100%;
+}
+
+.products{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+    min-height: 90vh;
+    flex-wrap: wrap;
+    background-image: linear-gradient(180deg, var(--bg-color) 50%, var(--main-color) 50.5%);
+}
+
+.products h1{
+    font-size: var(--big-font);
+    color: var(--card-color);
+}
+
+.products .cards{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.products .card{
+    display: flex;
+    background-color: var(--card-color);
+    width: 400px;
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.products .card img{
+    max-width: 100%;
+    border-radius: 1rem;
+}
+
+.products .card .text{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding: 10px 0px 10px;
+}
+
+.products .card .text h2{
+    color: var(--main-color);
+}
+
+.products .card .text p{
+    color: var(--bg-color);
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    min-height: 90vh;
+    flex-wrap: wrap;
+    background-image: linear-gradient(0deg, var(--bg-color) 70%, var(--main-color) 70.5%);
+}
+
+.about img{
+    max-height: 60vh;
     border-radius: 1rem;
     box-shadow: 0px 0px 23px -2px rgba(0,0,0,0.96);
 }
 
-.home .img .destaq img{
+.about .text{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    max-height: 60vh;
+    padding-right: 90px;
+    gap: 2rem;
+    color: var(--main-color);
+}
+
+.about .text h1{
+    color: var(--card-color);
+}   
+
+footer{
+    min-height: 40vh;
+    background-image: linear-gradient(177.5deg, var(--bg-color) 80%, var(--main-color) 80.5%);
+}
+
+footer .text{
     width: 100%;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.home .img .destaq{
-    grid-column: 1/3;
-    grid-row: 1/1;
-    background-image: url(../assets/pictures/bg.jpg);
-    background-position: center;
-    background-size: cover;
+footer .text > div{
+    display: flex;
 }
 
-.sec{
-    background-image: url(../assets/pictures/bg.jpg);
-    background-position: center;
-    background-size: cover;
+@media(max-width:1140px){
+    .nav{
+        top: -2000px;
+        position: fixed;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        background: var(--main-color);
+        transition: .3s;
+        height: 100vh;
+        padding: 100px 0px; 
+    }
+
+    header .button{
+        display: none;
+    }
+
+    .menu{
+        display: block;
+        z-index: 15;
+    }
+
+    .home{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .home .text {
+        padding-bottom: 50px;
+    }
+
+    .products .card{
+        width: 100%;
+    }
+}
+
+@media (max-width: 575px){
+    header{
+        padding: 15px 50px;
+    }
+    .home .img{
+        width: 100%;
+    }
 }
