@@ -124,6 +124,7 @@ section{
     flex-direction: column;
     padding: 80px 0px 30px 30px;
     color: var(--bg-color);
+    max-width: 100%;
 }
 
 .home .text h1{
@@ -132,13 +133,15 @@ section{
 
 .home .text .bottons{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 4rem;
 }
 
 .home .img{
     display: flex;
     width: 70%;
-    padding: 15px;
+    border: 1px solid var(--card-color);
     background-color: var(--card-color);
     border-radius: 1rem;
     box-shadow: 0px 0px 23px -2px rgba(0,0,0,0.96);
@@ -155,11 +158,11 @@ section{
 
 .products{
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 3rem;
     min-height: 90vh;
+    max-width: 100%;
     flex-wrap: wrap;
     background-image: linear-gradient(180deg, var(--bg-color) 50%, var(--main-color) 50.5%);
 }
@@ -171,25 +174,30 @@ section{
 
 .products .cards{
     display: flex;
-    width: 100%;
-    justify-content: center;
+    max-width: 100%;
     flex-wrap: wrap;
     gap: 1rem;
+    justify-content: center;
 }
 
 .products .card{
     display: flex;
     background-color: var(--card-color);
     width: 400px;
-    max-width: 70%;
-    padding: 10px;
+    max-width: 95%;
     border-radius: 1rem;
     flex-direction: column;
-    justify-content: space-between;
+    padding: 10px;
 }
 
-.products .card img{
-    max-width: 100%;
+.products .card .img{
+    width: 100%;
+    height: 250px;
+}
+
+.products .card .img img{
+    width: 100%;
+    height: 100%;
     border-radius: 1rem;
 }
 
@@ -220,9 +228,17 @@ section{
     background-image: linear-gradient(0deg, var(--bg-color) 70%, var(--main-color) 70.5%);
 }
 
+.about .img{
+    width: 40%;
+    height: 70vh;
+}
+
+.about .img img{
+    width: 100%;
+    height: 100%;
+}
+
 .about img{
-    max-height: 60vh;
-    max-width: 100%;
     border-radius: 1rem;
     box-shadow: 0px 0px 23px -2px rgba(0,0,0,0.96);
 }
@@ -246,12 +262,12 @@ footer{
     align-items: center;
     justify-content: space-between;
     padding: 10px;
+    gap: 1rem;
 }
 
 footer .text{
-    width: 100%;
+    width: 80%;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
 }
@@ -273,7 +289,7 @@ footer .text > div{
     display: flex;
     flex-direction: column;
     min-width: 400px;
-    max-width: 100%;
+    max-width: 80%;
     padding: 10px;
 }
 
@@ -342,12 +358,37 @@ footer .logos .card:hover{
     }
 
     .home .text {
-        padding-bottom: 50px;
+        align-items: center;
+        text-align: center;
+        padding: 80px 10px 50px 10px;
+    }
+
+    .home .img{
+        width: 90%;
+        max-height: 80vh;
+    }
+
+    .home .img img{
+        min-width: 100%;
     }
 
     .products .card{
-        width: 100%;
+        width: 40%;
     }
+
+    .about .text{
+        padding: 0;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about .img{
+        width: 90%;
+    }
+
+    footer .text > div{
+        min-width: 300px;
+    }    
 }
 
 @media (max-width: 575px){
@@ -357,4 +398,32 @@ footer .logos .card:hover{
     .home .img{
         width: 100%;
     }
+
+    .products .card{
+        width: 100%;
+    }
+
+    .about .img{
+        height: 250px;
+    }
+
+    .about .text{
+        padding: 0;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    footer{
+        padding: 10px;
+    }
+
+    footer h4{
+        text-align: center;
+    }
+
+    footer .text > div{
+        min-width: 100%;
+    }    
+
 }
